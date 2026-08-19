@@ -17,3 +17,4 @@
 - [ ] Menerima testimoni serta cerita sukses asli, beserta izin publikasi, nama/pseudonim, dan hasil yang boleh diklaim.
 - [x] Menambahkan section bukti sosial tanpa membuat atau memalsukan review, rating, maupun metrik.
 - [ ] Menguji link kontak, jalur pemesanan, checkout, dan tampilan responsif sebelum menyampaikan pembaruan.
+- [ ] Memeriksa remote GitHub, menyimpan commit versi terbaru, dan mendorong source code RuangSI ke repository privat pengguna.

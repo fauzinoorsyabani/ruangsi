@@ -2,7 +2,7 @@
  * RUANGSI — PEMESANAN KELAS
  * A calm, form-led study route that records a student's context before the official Shopify checkout.
  */
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronDown, CreditCard, ExternalLink, Loader2, ShoppingBag, Sparkles } from "lucide-react";
 import { toast } from "sonner";
@@ -46,15 +46,26 @@ function CourseCard({ product, selected, onSelect }: { product: Product; selecte
 }
 
 export default function Order() {
-  const { data: products = [], isLoading: catalogLoading, isError: catalogError } = trpc.commerce.products.list.useQuery({ first: 8 });
+  const { data: products = [], isLoading: catalogLoading, isError: catalogError } = trpc.commerce.products.list.useQuery({ first: 8 }, { retry: false, staleTime: 60_000 });
   const createBooking = trpc.booking.create.useMutation();
   const { cart, itemCount, addItem, loading: cartLoading, proceedToCheckout } = useCart();
   const [form, setForm] = useState<FormState>(initialForm);
   const [selectedHandle, setSelectedHandle] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
+  const [catalogWaited, setCatalogWaited] = useState(false);
 
   const selectedProduct = useMemo(() => products.find((product) => product.handle === selectedHandle) ?? null, [products, selectedHandle]);
   const busy = createBooking.isPending || cartLoading;
+
+  useEffect(() => {
+    if (!catalogLoading) {
+      setCatalogWaited(false);
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => setCatalogWaited(true), 1800);
+    return () => window.clearTimeout(timeoutId);
+  }, [catalogLoading]);
 
   const setField = (field: keyof FormState, value: string) => setForm((previous) => ({ ...previous, [field]: value }));
 
@@ -91,6 +102,9 @@ export default function Order() {
           <h1>Ambil kelas yang sesuai dengan <em>titik mulamu.</em></h1>
           <p>Lengkapi konteks singkatmu terlebih dahulu. Jika program sudah aktif, data pendaftaran disimpan lalu kamu dapat meneruskan ke checkout aman Shopify.</p>
           <div className="order-steps"><span className="is-active">01 Pilih program</span><i /><span>02 Isi konteks</span><i /><span>03 Bayar aman</span></div>
+          <div className="order-signal-board" aria-label="Tahap pendaftaran RuangSI">
+            <span><b>TOPIK</b><i>CAPTURE</i></span><span><b>PROGRAM</b><i>SELECT</i></span><span><b>DATA</b><i>RECORDED</i></span><span><b>CHECKOUT</b><i>READY</i></span>
+          </div>
         </section>
 
         <section className="order-layout">
@@ -107,10 +121,10 @@ export default function Order() {
             </div>
 
             <div className="form-heading form-heading--program"><span>02</span><div><h2>Pilih program</h2><p>Katalog dan harga tampil langsung dari sistem kelas RuangSI.</p></div></div>
-            {catalogLoading && <div className="catalog-state"><Loader2 className="spin" size={20} /> Memuat program kelas…</div>}
+            {catalogLoading && !catalogWaited && <div className="catalog-state"><Loader2 className="spin" size={20} /> Memeriksa katalog kelas…</div>}
             {!catalogLoading && products.length > 0 && <div className="course-choices">{products.map((product) => <CourseCard key={product.id} product={product} selected={product.handle === selectedHandle} onSelect={() => { setSelectedHandle(product.handle); setSaved(false); }} />)}</div>}
-            {!catalogLoading && products.length === 0 && <div className="catalog-state catalog-state--empty"><ShoppingBag size={20} /><div><b>Katalog kelas sedang disiapkan.</b><span>Isi form ini untuk mencatat minatmu. Checkout akan tersedia segera setelah program dan harga resmi ditambahkan.</span></div></div>}
-            {catalogError && <p className="form-note">Katalog belum dapat diakses saat ini. Data minat tetap dapat dikirim melalui form.</p>}
+            {((!catalogLoading && products.length === 0) || catalogWaited || catalogError) && <div className="catalog-state catalog-state--empty"><ShoppingBag size={20} /><div><b>Katalog kelas belum aktif.</b><span>Data minatmu tetap dapat dikirim sekarang. Pilihan kelas dan checkout muncul otomatis setelah program, harga, dan pembayaran resmi diaktifkan.</span></div></div>}
+            {catalogError && <p className="form-note">Storefront belum tersedia saat ini. Data minat tetap dapat disimpan dengan aman.</p>}
 
             <div className="form-privacy"><span><CheckCircle2 size={15} /></span><p>Data ini digunakan untuk menindaklanjuti pendaftaran dan tidak dipublikasikan sebagai testimoni tanpa izin.</p></div>
             <button className="order-submit" type="submit" disabled={busy}>{busy ? <><Loader2 className="spin" size={18} /> Menyimpan…</> : selectedProduct ? <>Simpan & siapkan checkout <ArrowRight size={18} /></> : <>Kirim minat pendaftaran <ArrowRight size={18} /></>}</button>

@@ -8,6 +8,7 @@
 - [ ] Membuat minimal satu produk kelas aktif dengan harga dan deskripsi yang disetujui pemilik setelah katalog diberikan.
 - [ ] Mengklaim dev store Shopify dan mengaktifkan penyedia pembayaran sebelum checkout dipakai publik.
 - [x] Menambahkan halaman pemesanan yang dapat memilih program, menangkap kebutuhan awal, dan meneruskan mahasiswa ke checkout.
+- [x] Memperjelas keadaan katalog kosong serta identitas study-signal board pada halaman pemesanan agar tidak terlihat seperti loading tanpa akhir.
 - [x] Menampilkan placeholder kontak dan bukti sosial yang eksplisit sampai nomor, tautan Instagram, serta testimoni asli diterima.
 - [ ] Menghubungkan CTA konsultasi ke pesan WhatsApp yang sesuai konteks dan footer ke Instagram.
 - [ ] Menerima testimoni serta cerita sukses asli, beserta izin publikasi, nama/pseudonim, dan hasil yang boleh diklaim.

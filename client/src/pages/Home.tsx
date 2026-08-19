@@ -6,6 +6,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useLocation } from "wouter";
+import { buildWhatsAppUrl, RUANGSI_INSTAGRAM_URL } from "@shared/contact";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -14,6 +15,7 @@ import {
   Compass,
   FileCheck2,
   FileText,
+  Instagram,
   Layers3,
   Menu,
   MessageCircle,
@@ -185,8 +187,12 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const openConsultation = (context = "konsultasi") => {
+  const openRegistration = (context = "pendaftaran") => {
     setLocation(`/pesan?intent=${encodeURIComponent(context)}`);
+  };
+
+  const openWhatsApp = (context = "konsultasi") => {
+    window.open(buildWhatsAppUrl(context), "_blank", "noopener,noreferrer");
   };
 
   const closeMenu = () => setMenuOpen(false);
@@ -207,12 +213,12 @@ export default function Home() {
             <a href="#cerita" onClick={closeMenu}>Cerita</a>
             <a href="#cara-kerja" onClick={closeMenu}>Alur</a>
             <a href="#faq" onClick={closeMenu}>FAQ</a>
-            <button className="nav-consult-mobile" onClick={() => { closeMenu(); openConsultation("konsultasi"); }}>
+            <button className="nav-consult-mobile" onClick={() => { closeMenu(); openWhatsApp("konsultasi"); }}>
               Konsultasi <ArrowUpRight size={16} />
             </button>
           </nav>
           <div className="header-actions">
-            <button className="button button--compact button--dark" onClick={() => openConsultation("konsultasi")}>
+            <button className="button button--compact button--dark" onClick={() => openWhatsApp("konsultasi")}>
               <MessageCircle size={16} />
               <span>Konsultasi</span>
             </button>
@@ -253,7 +259,7 @@ export default function Home() {
                 RuangSI membantu mahasiswa Sistem Informasi dan bidang IT menyusun proses skripsi yang lebih jelas—dari ide awal, rancangan sistem, hingga siap presentasi.
               </motion.p>
               <motion.div variants={reveal} className="hero-actions">
-                <button className="button button--signal" onClick={() => openConsultation("konsultasi")}>Buka konsultasi <ArrowUpRight size={18} /></button>
+                <button className="button button--signal" onClick={() => openWhatsApp("konsultasi skripsi SI atau IT")}>Buka konsultasi <ArrowUpRight size={18} /></button>
                 <a className="button button--text" href="#layanan">Lihat cara kerja <ArrowDownRight size={18} /></a>
               </motion.div>
               <motion.div variants={reveal} className="hero-note">
@@ -335,7 +341,7 @@ export default function Home() {
                     <div className="service-card__meta"><span>{item.code}</span><Icon size={19} /></div>
                     <h3>{item.title}</h3>
                     <p>{item.description}</p>
-                    <div className="service-card__foot"><span>{item.output}</span><button onClick={() => openConsultation(item.title)} aria-label={`Tanya layanan ${item.title}`}><ArrowUpRight size={18} /></button></div>
+                    <div className="service-card__foot"><span>{item.output}</span><button onClick={() => openWhatsApp(item.title)} aria-label={`Tanya layanan ${item.title} via WhatsApp`}><ArrowUpRight size={18} /></button></div>
                   </motion.article>
                 );
               })}
@@ -382,7 +388,7 @@ export default function Home() {
                 </motion.article>
               ))}
             </div>
-            <div className="portfolio-cta"><p>Punya masalah proyek yang belum masuk kategori di atas?</p><button className="button button--outline" onClick={() => openConsultation("proyek")}>Ceritakan topikmu <ArrowUpRight size={17} /></button></div>
+            <div className="portfolio-cta"><p>Punya masalah proyek yang belum masuk kategori di atas?</p><button className="button button--outline" onClick={() => openWhatsApp("proyek IT")}>Ceritakan topikmu <ArrowUpRight size={17} /></button></div>
           </div>
         </section>
 
@@ -432,7 +438,7 @@ export default function Home() {
                 <motion.article className="class-card" key={item.no} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} variants={reveal} transition={{ delay: index * 0.08, duration: 0.45 }}>
                   <div className="class-card__number">{item.no}</div>
                   <div className="class-card__body"><h3>{item.title}</h3><p>{item.description}</p><div>{item.chips.map((chip) => <span key={chip}>{chip}</span>)}</div></div>
-                  <button className="class-card__action" onClick={() => openConsultation(item.title)} aria-label={`Tanya ${item.title}`}><ArrowUpRight size={20} /></button>
+                  <button className="class-card__action" onClick={() => openRegistration(item.title)} aria-label={`Daftar ${item.title}`}><ArrowUpRight size={20} /></button>
                 </motion.article>
               ))}
             </div>
@@ -453,7 +459,7 @@ export default function Home() {
                 <b>BIMBINGAN TERARAH</b>
                 <div className="poster-foot">DAFTAR KELAS <ArrowUpRight size={14} /></div>
               </div>
-              <div className="poster-copy"><span>POSTER SERIES / 01—02</span><h3>Visual promo yang siap menjadi materi awal media sosialmu.</h3><p>Dua poster live ini dibuat dalam sistem visual yang sama dengan website sehingga pesan brand tetap konsisten di setiap touchpoint.</p><button className="button button--outline-light" onClick={() => openConsultation("poster dan kelas")}>Tanya program kelas <ArrowUpRight size={17} /></button></div>
+              <div className="poster-copy"><span>POSTER SERIES / 01—02</span><h3>Visual promo yang siap menjadi materi awal media sosialmu.</h3><p>Dua poster live ini dibuat dalam sistem visual yang sama dengan website sehingga pesan brand tetap konsisten di setiap touchpoint.</p><button className="button button--outline-light" onClick={() => openRegistration("poster dan kelas")}>Daftar program kelas <ArrowUpRight size={17} /></button></div>
             </div>
           </div>
         </section>
@@ -502,8 +508,11 @@ export default function Home() {
               <h2>Ceritakan topikmu.<br /><em>Kita cari titik mulai.</em></h2>
               <p>Belum perlu rapi. Bawa judul sementara, catatan revisi, atau cerita singkat tentang proyekmu. Nanti kita petakan jalan berikutnya.</p>
               <div className="contact-route" aria-hidden="true"><span>TOPIK</span><i /><span>METODE</span><i /><span>SIDANG</span></div>
-              <button className="button button--orange" onClick={() => openConsultation("konsultasi akhir")}>Mulai konsultasi <MessageCircle size={18} /></button>
-              <small>Nomor WhatsApp dan tautan Instagram akan dipasang setelah detail bisnis diberikan.</small>
+              <button className="button button--orange" onClick={() => openWhatsApp("konsultasi awal")}>Mulai konsultasi <MessageCircle size={18} /></button>
+              <div className="contact-channels">
+                <a href={buildWhatsAppUrl("konsultasi awal")} target="_blank" rel="noreferrer"><MessageCircle size={15} /> +62 895-6092-50509</a>
+                <a href={RUANGSI_INSTAGRAM_URL} target="_blank" rel="noreferrer"><Instagram size={15} /> @jago.jokitugas</a>
+              </div>
             </div>
           </div>
         </section>
@@ -511,7 +520,7 @@ export default function Home() {
 
       <footer className="site-footer">
         <div className="footer-main"><BrandMark /><p>Ruang bimbingan terarah untuk mahasiswa Sistem Informasi dan IT.</p></div>
-        <div className="footer-links"><a href="#layanan">Layanan</a><a href="#kelas">Kelas</a><a href="#cerita">Cerita</a><a href="#faq">FAQ</a><button onClick={() => openConsultation("footer")}>Pendaftaran <ArrowUpRight size={14} /></button></div>
+        <div className="footer-links"><a href="#layanan">Layanan</a><a href="#kelas">Kelas</a><a href="#cerita">Cerita</a><a href="#faq">FAQ</a><a href={RUANGSI_INSTAGRAM_URL} target="_blank" rel="noreferrer">Instagram</a><button onClick={() => openWhatsApp("konsultasi dari footer")}>WhatsApp <ArrowUpRight size={14} /></button></div>
         <div className="footer-bottom"><span>© 2026 RuangSI</span><span>Pendampingan edukatif, bukan pengganti tanggung jawab akademik.</span></div>
       </footer>
     </div>

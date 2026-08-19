@@ -5,6 +5,7 @@
  */
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useLocation } from "wouter";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -21,7 +22,6 @@ import {
   Sparkles,
   X,
 } from "lucide-react";
-import { toast } from "sonner";
 import {
   Accordion,
   AccordionContent,
@@ -176,6 +176,7 @@ function SectionLabel({ number, children }: { number: string; children: React.Re
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [, setLocation] = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 22);
@@ -185,13 +186,7 @@ export default function Home() {
   }, []);
 
   const openConsultation = (context = "konsultasi") => {
-    toast("Sambungkan WhatsApp bisnis dulu", {
-      description: `Tombol ${context} siap dipasangkan ke nomor WhatsApp RuangSI.`,
-      action: {
-        label: "Lihat kontak",
-        onClick: () => document.getElementById("hubungi")?.scrollIntoView({ behavior: "smooth" }),
-      },
-    });
+    setLocation(`/pesan?intent=${encodeURIComponent(context)}`);
   };
 
   const closeMenu = () => setMenuOpen(false);
@@ -209,6 +204,7 @@ export default function Home() {
             <a href="#layanan" onClick={closeMenu}>Layanan</a>
             <a href="#portfolio" onClick={closeMenu}>Portfolio</a>
             <a href="#kelas" onClick={closeMenu}>Kelas</a>
+            <a href="#cerita" onClick={closeMenu}>Cerita</a>
             <a href="#cara-kerja" onClick={closeMenu}>Alur</a>
             <a href="#faq" onClick={closeMenu}>FAQ</a>
             <button className="nav-consult-mobile" onClick={() => { closeMenu(); openConsultation("konsultasi"); }}>
@@ -480,6 +476,23 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="cerita" className="stories-section">
+          <div className="section-frame stories-frame">
+            <div className="stories-side">
+              <SectionLabel number="06">Cerita dengan izin</SectionLabel>
+              <h2>Bukti sosial harus <em>setulus prosesnya.</em></h2>
+              <p>RuangSI hanya akan menampilkan pengalaman mahasiswa yang benar-benar diberikan dan disetujui untuk dipublikasikan.</p>
+            </div>
+            <div className="stories-empty">
+              <div className="stories-empty__stamp"><Check size={26} /></div>
+              <span>AUTHENTIC STORIES / PENDING</span>
+              <h3>Ruang untuk cerita mahasiswa sedang disiapkan.</h3>
+              <p>Testimoni, nama atau inisial, serta hasil yang boleh diklaim akan ditambahkan setelah materi asli beserta izin publikasinya diterima.</p>
+              <div><i /> Tidak ada rating, ulasan, atau angka keberhasilan yang dibuat-buat.</div>
+            </div>
+          </div>
+        </section>
+
         <section id="hubungi" className="contact-section">
           <div className="contact-orb contact-orb--one" aria-hidden="true" /><div className="contact-orb contact-orb--two" aria-hidden="true" />
           <div className="section-frame contact-frame">
@@ -490,7 +503,7 @@ export default function Home() {
               <p>Belum perlu rapi. Bawa judul sementara, catatan revisi, atau cerita singkat tentang proyekmu. Nanti kita petakan jalan berikutnya.</p>
               <div className="contact-route" aria-hidden="true"><span>TOPIK</span><i /><span>METODE</span><i /><span>SIDANG</span></div>
               <button className="button button--orange" onClick={() => openConsultation("konsultasi akhir")}>Mulai konsultasi <MessageCircle size={18} /></button>
-              <small>Nomor WhatsApp bisnis akan dipasang sebelum website dipublikasikan.</small>
+              <small>Nomor WhatsApp dan tautan Instagram akan dipasang setelah detail bisnis diberikan.</small>
             </div>
           </div>
         </section>
@@ -498,7 +511,7 @@ export default function Home() {
 
       <footer className="site-footer">
         <div className="footer-main"><BrandMark /><p>Ruang bimbingan terarah untuk mahasiswa Sistem Informasi dan IT.</p></div>
-        <div className="footer-links"><a href="#layanan">Layanan</a><a href="#kelas">Kelas</a><a href="#faq">FAQ</a><button onClick={() => openConsultation("footer")}>Konsultasi <ArrowUpRight size={14} /></button></div>
+        <div className="footer-links"><a href="#layanan">Layanan</a><a href="#kelas">Kelas</a><a href="#cerita">Cerita</a><a href="#faq">FAQ</a><button onClick={() => openConsultation("footer")}>Pendaftaran <ArrowUpRight size={14} /></button></div>
         <div className="footer-bottom"><span>© 2026 RuangSI</span><span>Pendampingan edukatif, bukan pengganti tanggung jawab akademik.</span></div>
       </footer>
     </div>

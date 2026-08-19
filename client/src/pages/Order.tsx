@@ -4,11 +4,12 @@
  */
 import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "wouter";
-import { ArrowLeft, ArrowRight, CheckCircle2, ChevronDown, CreditCard, ExternalLink, Loader2, ShoppingBag, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, ChevronDown, CreditCard, ExternalLink, Loader2, MessageCircle, ShoppingBag, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
 import { useCart } from "@/contexts/CartContext";
 import type { Product } from "@shared/commerce/types";
+import { buildWhatsAppUrl } from "@shared/contact";
 
 type FormState = {
   fullName: string;
@@ -127,7 +128,7 @@ export default function Order() {
             <div className="form-heading form-heading--program"><span>02</span><div><h2>Pilih program</h2><p>Katalog dan harga tampil langsung dari sistem kelas RuangSI.</p></div></div>
             {catalogLoading && !catalogWaited && <div className="catalog-state"><Loader2 className="spin" size={20} /> Memeriksa katalog kelas…</div>}
             {!catalogLoading && products.length > 0 && <div className="course-choices">{products.map((product) => <CourseCard key={product.id} product={product} selected={product.handle === selectedHandle} onSelect={() => { setSelectedHandle(product.handle); setSaved(false); }} />)}</div>}
-            {((!catalogLoading && products.length === 0) || catalogWaited || catalogError) && <div className="catalog-state catalog-state--empty"><ShoppingBag size={20} /><div><b>Katalog kelas belum aktif.</b><span>Data minatmu tetap dapat dikirim sekarang. Pilihan kelas dan checkout muncul otomatis setelah program, harga, dan pembayaran resmi diaktifkan.</span></div></div>}
+            {((!catalogLoading && products.length === 0) || catalogWaited || catalogError) && <div className="catalog-state catalog-state--empty"><ShoppingBag size={20} /><div><b>Katalog kelas belum aktif.</b><span>Data minatmu tetap dapat dikirim sekarang. Pilihan kelas dan checkout muncul otomatis setelah program, harga, dan pembayaran resmi diaktifkan.</span><a className="catalog-chat" href={buildWhatsAppUrl("ketersediaan kelas bimbingan")} target="_blank" rel="noreferrer"><MessageCircle size={14} /> Tanya program via WhatsApp</a></div></div>}
             {catalogError && <p className="form-note">Storefront belum tersedia saat ini. Data minat tetap dapat disimpan dengan aman.</p>}
 
             <div className="form-privacy"><span><CheckCircle2 size={15} /></span><p>Data ini digunakan untuk menindaklanjuti pendaftaran dan tidak dipublikasikan sebagai testimoni tanpa izin.</p></div>

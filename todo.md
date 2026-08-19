@@ -10,6 +10,7 @@
 - [x] Menambahkan halaman pemesanan yang dapat memilih program, menangkap kebutuhan awal, dan meneruskan mahasiswa ke checkout.
 - [x] Menyimpan konteks CTA asal mahasiswa pada inquiry agar tindak lanjut konsultasi dan kelas dapat dibedakan.
 - [x] Memperjelas keadaan katalog kosong serta identitas study-signal board pada halaman pemesanan agar tidak terlihat seperti loading tanpa akhir.
+- [x] Menambahkan jalur WhatsApp alternatif pada katalog kosong untuk calon mahasiswa yang ingin menanyakan kelas sebelum katalog aktif.
 - [x] Menampilkan placeholder kontak dan bukti sosial yang eksplisit sampai nomor, tautan Instagram, serta testimoni asli diterima.
 - [x] Menghubungkan CTA konsultasi ke pesan WhatsApp yang sesuai konteks dan footer ke Instagram.
 - [x] Mengaktifkan nomor WhatsApp 62895609250509 dan Instagram @jago.jokitugas pada seluruh CTA publik RuangSI.

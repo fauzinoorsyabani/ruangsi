@@ -12,6 +12,7 @@ export const bookingInput = z.object({
   topicNote: z.string().trim().max(2000).optional().or(z.literal("")),
   productHandle: z.string().trim().max(255).optional(),
   productTitle: z.string().trim().max(255).optional(),
+  intent: z.string().trim().max(120).optional(),
 });
 
 export const bookingRouter = router({
@@ -26,6 +27,7 @@ export const bookingRouter = router({
       topicNote: input.topicNote || null,
       productHandle: input.productHandle ?? null,
       productTitle: input.productTitle ?? null,
+      intent: input.intent ?? null,
     });
 
     return { success: true } as const;

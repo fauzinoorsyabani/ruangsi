@@ -146,6 +146,9 @@ button:not(:disabled), a[href] { cursor: pointer; }
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
 
+.intent-note { display: inline-flex; align-items: center; gap: 8px; margin: 23px 0 -9px 43px; padding: 8px 10px; color: #426273; border-left: 2px solid var(--cyan); background: rgba(49,210,196,.11); font-size: 11px; line-height: 1.45; }.intent-note svg { flex: 0 0 auto; color: #098d80; }.intent-note b { color: var(--ink); font-family: "Space Grotesk", sans-serif; }
+@media (max-width: 600px) { .intent-note { margin-left: 0; margin-bottom: -3px; } }
+
 /* Study signal board for the booking route. */
 .order-signal-board { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 600px; margin-top: 24px; border: 1px solid rgba(245,242,236,.2); }
 .order-signal-board span { min-height: 46px; display: flex; flex-direction: column; justify-content: center; gap: 4px; padding: 8px 10px; border-right: 1px solid rgba(245,242,236,.2); }

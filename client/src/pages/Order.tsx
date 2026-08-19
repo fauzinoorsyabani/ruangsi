@@ -3,7 +3,7 @@
  * A calm, form-led study route that records a student's context before the official Shopify checkout.
  */
 import { useEffect, useMemo, useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronDown, CreditCard, ExternalLink, Loader2, ShoppingBag, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
@@ -53,6 +53,8 @@ export default function Order() {
   const [selectedHandle, setSelectedHandle] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
   const [catalogWaited, setCatalogWaited] = useState(false);
+  const [location] = useLocation();
+  const intent = useMemo(() => new URLSearchParams(location.split("?")[1] ?? "").get("intent") ?? "pendaftaran", [location]);
 
   const selectedProduct = useMemo(() => products.find((product) => product.handle === selectedHandle) ?? null, [products, selectedHandle]);
   const busy = createBooking.isPending || cartLoading;
@@ -76,6 +78,7 @@ export default function Order() {
         ...form,
         productHandle: selectedProduct?.handle,
         productTitle: selectedProduct?.title,
+        intent,
       });
 
       if (selectedProduct?.variants[0]) {
@@ -98,7 +101,7 @@ export default function Order() {
 
       <main className="order-main">
         <section className="order-intro">
-          <p className="order-kicker"><Sparkles size={14} /> PENDAFTARAN / RUANGSI</p>
+          <p className="order-kicker"><Sparkles size={14} /> {intent.toUpperCase()} / RUANGSI</p>
           <h1>Ambil kelas yang sesuai dengan <em>titik mulamu.</em></h1>
           <p>Lengkapi konteks singkatmu terlebih dahulu. Jika program sudah aktif, data pendaftaran disimpan lalu kamu dapat meneruskan ke checkout aman Shopify.</p>
           <div className="order-steps"><span className="is-active">01 Pilih program</span><i /><span>02 Isi konteks</span><i /><span>03 Bayar aman</span></div>
@@ -110,6 +113,7 @@ export default function Order() {
         <section className="order-layout">
           <form className="booking-form" onSubmit={submit}>
             <div className="form-heading"><span>01</span><div><h2>Tentang kamu</h2><p>Agar arah bimbingan bisa dipetakan sejak awal.</p></div></div>
+            <p className="intent-note"><Sparkles size={14} /> Kamu datang dari CTA <b>“{intent.replaceAll("-", " ")}”</b>. Konteks ini ikut tersimpan untuk tindak lanjut yang lebih relevan.</p>
             <div className="form-grid">
               <label>Nama lengkap<input required value={form.fullName} onChange={(event) => setField("fullName", event.target.value)} placeholder="Nama kamu" /></label>
               <label>WhatsApp<input required inputMode="tel" value={form.whatsapp} onChange={(event) => setField("whatsapp", event.target.value)} placeholder="Contoh: 62812…" /></label>

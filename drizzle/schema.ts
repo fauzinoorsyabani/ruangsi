@@ -33,6 +33,7 @@ export const bookingInquiries = mysqlTable("bookingInquiries", {
   topicNote: text("topicNote"),
   productHandle: varchar("productHandle", { length: 255 }),
   productTitle: varchar("productTitle", { length: 255 }),
+  intent: varchar("intent", { length: 120 }),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
 });
 

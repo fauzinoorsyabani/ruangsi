@@ -1,0 +1,1 @@
+ALTER TABLE `bookingInquiries` ADD `intent` varchar(120);

@@ -13,9 +13,11 @@ describe("bookingInput", () => {
       topicNote: "Sistem informasi inventori kampus",
       productHandle: "kelas-proposal-it",
       productTitle: "Kelas Proposal & Metodologi IT",
+      intent: "kelas-proposal",
     });
 
     expect(parsed.productHandle).toBe("kelas-proposal-it");
+    expect(parsed.intent).toBe("kelas-proposal");
   });
 
   it("rejects an incomplete booking enquiry", () => {

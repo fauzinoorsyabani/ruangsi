@@ -8,6 +8,13 @@
       "when": 1787146286962,
       "tag": "0000_confused_chronomancer",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1787148240578,
+      "tag": "0001_nostalgic_toad",
+      "breakpoints": true
     }
   ]
 }

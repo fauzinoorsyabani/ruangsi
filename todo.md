@@ -55,3 +55,7 @@
 - [x] Shopify storefront/cart integration with empty-catalog fallback.
 - [x] WhatsApp and Instagram contact activation.
 - [x] GitHub private repository export.
+
+- [ ] Memeriksa apakah konektor Vercel tersedia dan aktif pada sesi Manus.
+- [ ] Memastikan repository GitHub RuangSI berisi konfigurasi deployment terbaru.
+- [ ] Menjalankan atau memverifikasi deployment Vercel nyata jika konektor dan otorisasi tersedia.

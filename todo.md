@@ -62,4 +62,4 @@
 
 - [x] Menambahkan marquee TOPIC · METHOD · SYSTEM · STORY · SIDANG yang bergerak kanan ke kiri, responsif, dan mendukung reduced motion.
 - [x] Memverifikasi build serta tampilan marquee.
-- [ ] Mendorong perubahan marquee ke GitHub.
+- [x] Mendorong perubahan marquee ke GitHub.

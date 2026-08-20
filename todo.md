@@ -19,19 +19,20 @@
 - [ ] Menguji link kontak, jalur pemesanan, checkout, dan tampilan responsif sebelum menyampaikan pembaruan.
 - [x] Memeriksa remote GitHub, menyimpan commit versi terbaru, dan mendorong source code RuangSI ke repository privat pengguna.
 
-- [ ] Audit dan perbaiki error deployment Vercel berdasarkan log dan build aktual.
-- [ ] Menyesuaikan struktur aset/media agar tidak bergantung pada file lokal yang tidak kompatibel dengan Vercel.
-- [ ] Menambahkan konfigurasi deployment Vercel yang kompatibel dengan build full-stack, tanpa memasukkan secret ke repository.
-- [ ] Menjalankan build, test, dan pemeriksaan rute setelah perbaikan Vercel.
+- [x] Audit dan perbaiki error deployment Vercel berdasarkan log dan build aktual.
+- [x] Menyesuaikan struktur aset/media agar tidak bergantung pada file lokal yang tidak kompatibel dengan Vercel.
+- [x] Menambahkan konfigurasi deployment Vercel yang kompatibel dengan build full-stack, tanpa memasukkan secret ke repository.
+- [x] Menjalankan build, test, dan pemeriksaan rute setelah perbaikan Vercel.
 - [ ] Mendorong perbaikan kompatibilitas Vercel ke GitHub.
-- [ ] Menyampaikan environment variables dan batasan Shopify/database yang wajib dikonfigurasi di Vercel.
+- [x] Menyampaikan environment variables dan batasan Shopify/database yang wajib dikonfigurasi di Vercel.
 
 ## Deployment Audit Notes
 
 - [x] Build lokal TypeScript dan produksi saat ini berhasil.
 - [x] Tidak ditemukan gambar/media lokal yang perlu dipindahkan dari client/public atau client/src/assets.
 - [x] Database RuangSI berisi tabel users dan bookingInquiries; deployment eksternal memerlukan database yang kompatibel dan DATABASE_URL.
-- [ ] Memverifikasi endpoint runtime dan konfigurasi environment di target Vercel.
+- [x] Verifikasi endpoint runtime dan konfigurasi environment pada server production lokal sebagai simulasi Vercel.
+- [ ] Verifikasi endpoint runtime dan konfigurasi environment pada deployment Vercel nyata setelah project diimpor dan variables diisi.
 
 ## Previous TODO History
 

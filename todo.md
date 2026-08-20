@@ -18,3 +18,39 @@
 - [x] Menambahkan section bukti sosial tanpa membuat atau memalsukan review, rating, maupun metrik.
 - [ ] Menguji link kontak, jalur pemesanan, checkout, dan tampilan responsif sebelum menyampaikan pembaruan.
 - [x] Memeriksa remote GitHub, menyimpan commit versi terbaru, dan mendorong source code RuangSI ke repository privat pengguna.
+
+- [ ] Audit dan perbaiki error deployment Vercel berdasarkan log dan build aktual.
+- [ ] Menyesuaikan struktur aset/media agar tidak bergantung pada file lokal yang tidak kompatibel dengan Vercel.
+- [ ] Menambahkan konfigurasi deployment Vercel yang kompatibel dengan build full-stack, tanpa memasukkan secret ke repository.
+- [ ] Menjalankan build, test, dan pemeriksaan rute setelah perbaikan Vercel.
+- [ ] Mendorong perbaikan kompatibilitas Vercel ke GitHub.
+- [ ] Menyampaikan environment variables dan batasan Shopify/database yang wajib dikonfigurasi di Vercel.
+
+## Deployment Audit Notes
+
+- [x] Build lokal TypeScript dan produksi saat ini berhasil.
+- [x] Tidak ditemukan gambar/media lokal yang perlu dipindahkan dari client/public atau client/src/assets.
+- [x] Database RuangSI berisi tabel users dan bookingInquiries; deployment eksternal memerlukan database yang kompatibel dan DATABASE_URL.
+- [ ] Memverifikasi endpoint runtime dan konfigurasi environment di target Vercel.
+
+## Previous TODO History
+
+- [x] Previous RuangSI features and GitHub export history retained above.
+- [ ] Class catalog, prices, checkout activation, and authenticated alumni stories remain blocked until owner data is provided.
+- [ ] Configure Shopify ownership and payment provider before public checkout.
+- [ ] Add verified alumni testimonials only after owner provides permissioned source material.
+- [ ] Run final end-to-end contact, order, checkout, and responsive checks before public deployment.
+- [ ] Fix any remaining deployment compatibility errors and push the final commit.
+- [ ] Record Vercel environment variable checklist and external-hosting caveats.
+
+## Current Request
+
+- [ ] Repair Vercel deployment compatibility and push the final changes to GitHub.
+
+## Existing Completed Work
+
+- [x] RuangSI landing page and Peta Studi visual system.
+- [x] Booking inquiry form with CTA context persistence.
+- [x] Shopify storefront/cart integration with empty-catalog fallback.
+- [x] WhatsApp and Instagram contact activation.
+- [x] GitHub private repository export.

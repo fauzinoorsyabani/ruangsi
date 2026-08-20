@@ -16,7 +16,7 @@
 - [x] Mengaktifkan nomor WhatsApp 62895609250509 dan Instagram @jago.jokitugas pada seluruh CTA publik RuangSI.
 - [ ] Menerima testimoni serta cerita sukses asli, beserta izin publikasi, nama/pseudonim, dan hasil yang boleh diklaim.
 - [x] Menambahkan section bukti sosial tanpa membuat atau memalsukan review, rating, maupun metrik.
-- [ ] Menguji link kontak, jalur pemesanan, checkout, dan tampilan responsif sebelum menyampaikan pembaruan.
+- [x] Menguji link kontak, jalur pemesanan, checkout, dan tampilan responsif sebelum menyampaikan pembaruan.
 - [x] Memeriksa remote GitHub, menyimpan commit versi terbaru, dan mendorong source code RuangSI ke repository privat pengguna.
 
 - [x] Audit dan perbaiki error deployment Vercel berdasarkan log dan build aktual.
@@ -32,7 +32,7 @@
 - [x] Tidak ditemukan gambar/media lokal yang perlu dipindahkan dari client/public atau client/src/assets.
 - [x] Database RuangSI berisi tabel users dan bookingInquiries; deployment eksternal memerlukan database yang kompatibel dan DATABASE_URL.
 - [x] Verifikasi endpoint runtime dan konfigurasi environment pada server production lokal sebagai simulasi Vercel.
-- [ ] Verifikasi endpoint runtime dan konfigurasi environment pada deployment Vercel nyata setelah project diimpor dan variables diisi.
+- [x] Verifikasi endpoint runtime dan konfigurasi environment pada deployment Vercel nyata setelah project diimpor dan variables diisi.
 
 ## Previous TODO History
 
@@ -41,8 +41,8 @@
 - [ ] Configure Shopify ownership and payment provider before public checkout.
 - [ ] Add verified alumni testimonials only after owner provides permissioned source material.
 - [ ] Run final end-to-end contact, order, checkout, and responsive checks before public deployment.
-- [ ] Fix any remaining deployment compatibility errors and push the final commit.
-- [ ] Record Vercel environment variable checklist and external-hosting caveats.
+- [x] Fix any remaining deployment compatibility errors and push the final commit.
+- [x] Record Vercel environment variable checklist and external-hosting caveats.
 
 ## Current Request
 
@@ -56,6 +56,6 @@
 - [x] WhatsApp and Instagram contact activation.
 - [x] GitHub private repository export.
 
-- [ ] Memeriksa apakah konektor Vercel tersedia dan aktif pada sesi Manus.
-- [ ] Memastikan repository GitHub RuangSI berisi konfigurasi deployment terbaru.
-- [ ] Menjalankan atau memverifikasi deployment Vercel nyata jika konektor dan otorisasi tersedia.
+- [x] Memeriksa apakah konektor Vercel tersedia dan aktif pada sesi Manus.
+- [x] Memastikan repository GitHub RuangSI berisi konfigurasi deployment terbaru.
+- [x] Menjalankan atau memverifikasi deployment Vercel nyata jika konektor dan otorisasi tersedia.

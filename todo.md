@@ -66,4 +66,4 @@
 
 - [x] Memperbanyak label marquee menjadi rangkaian IDE · TOPIK · MASALAH · METHOD · DATA · SYSTEM · UML · ERD · UX · STORY · REVIEW · SIDANG · READY tanpa ruang kosong visual.
 - [x] Memverifikasi build dan tampilan marquee yang lebih padat.
-- [ ] Mendorong perubahan marquee padat ke GitHub.
+- [x] Mendorong perubahan marquee padat ke GitHub.

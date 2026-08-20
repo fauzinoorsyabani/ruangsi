@@ -304,10 +304,10 @@ export default function Home() {
           <div className="hero-bottom-strip" aria-label="Tahapan bimbingan skripsi">
             <div className="hero-bottom-strip__track">
               <div className="hero-bottom-strip__set">
-                <span>TOPIC</span><i /><span>METHOD</span><i /><span>SYSTEM</span><i /><span>STORY</span><i /><span>SIDANG</span>
+                <span>IDE</span><i /><span>TOPIK</span><i /><span>MASALAH</span><i /><span>METHOD</span><i /><span>DATA</span><i /><span>SYSTEM</span><i /><span>UML</span><i /><span>ERD</span><i /><span>UX</span><i /><span>STORY</span><i /><span>REVIEW</span><i /><span>SIDANG</span><i /><span>READY</span>
               </div>
               <div className="hero-bottom-strip__set" aria-hidden="true">
-                <span>TOPIC</span><i /><span>METHOD</span><i /><span>SYSTEM</span><i /><span>STORY</span><i /><span>SIDANG</span>
+                <span>IDE</span><i /><span>TOPIK</span><i /><span>MASALAH</span><i /><span>METHOD</span><i /><span>DATA</span><i /><span>SYSTEM</span><i /><span>UML</span><i /><span>ERD</span><i /><span>UX</span><i /><span>STORY</span><i /><span>REVIEW</span><i /><span>SIDANG</span><i /><span>READY</span>
               </div>
             </div>
           </div>

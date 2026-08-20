@@ -63,3 +63,7 @@
 - [x] Menambahkan marquee TOPIC · METHOD · SYSTEM · STORY · SIDANG yang bergerak kanan ke kiri, responsif, dan mendukung reduced motion.
 - [x] Memverifikasi build serta tampilan marquee.
 - [x] Mendorong perubahan marquee ke GitHub.
+
+- [x] Memperbanyak label marquee menjadi rangkaian IDE · TOPIK · MASALAH · METHOD · DATA · SYSTEM · UML · ERD · UX · STORY · REVIEW · SIDANG · READY tanpa ruang kosong visual.
+- [x] Memverifikasi build dan tampilan marquee yang lebih padat.
+- [ ] Mendorong perubahan marquee padat ke GitHub.

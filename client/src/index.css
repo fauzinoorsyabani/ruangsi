@@ -191,3 +191,56 @@ button:not(:disabled), a[href] { cursor: pointer; }
 
 @media (max-width: 1020px) { .service-card:nth-child(n) { min-height: 305px; margin-top: 0; transform: none; } }
 @media (max-width: 760px) { .brand-lockup.compact .brand-mark { width: 34px; height: 34px; }.brand-lockup.compact .brand-word { font-size: 21px; }.brand-lockup.compact .brand-mark::before { left: 8px; top: 14px; }.brand-lockup.compact .brand-mark__route { left: 17px; top: 9px; }.map-board { width: 73%; height: 276px; top: 66px; left: 54px; padding: 12px; }.map-board__ledger { margin-top: 7px; gap: 2px; }.map-board__ledger span { padding: 3px 2px; font-size: 4.5px; }.map-board__ledger b { font-size: 5.5px; }.map-board__main { height: 184px; margin-top: 6px; }.map-node--a { top: 24px; }.map-node--b { top: 106px; }.map-node--c { top: 29px; }.route-line--one { top: 64px; }.route-line--two { top: 126px; }.route-line--three { top: 63px; }.map-board__tag { bottom: 10px; font-size: 15px; }.map-board__tag small { margin-top: 4px; font-size: 4.6px; }.map-board__foot { margin-top: 6px; }.visual-float--one { top: 36px; }.service-card:nth-child(n) { min-height: 258px; margin-top: 0; transform: none; } }
+
+/* Continuous study-route marquee: TOPIC → METHOD → SYSTEM → STORY → SIDANG. */
+.hero-bottom-strip {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  padding: 15px 0 14px;
+  white-space: nowrap;
+}
+.hero-bottom-strip__track {
+  display: flex;
+  width: max-content;
+  animation: study-route-marquee 22s linear infinite;
+  will-change: transform;
+}
+.hero-bottom-strip__set {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 22px;
+  min-width: 100vw;
+  padding: 0 22px;
+}
+.hero-bottom-strip__set span {
+  color: rgba(245,242,236,.74);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.45px;
+}
+.hero-bottom-strip__set i {
+  display: block;
+  width: 5px;
+  height: 5px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 0 3px rgba(49,210,196,.12);
+}
+@keyframes study-route-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+@media (max-width: 600px) {
+  .hero-bottom-strip { padding: 13px 0 12px; }
+  .hero-bottom-strip__track { animation-duration: 18s; }
+  .hero-bottom-strip__set { gap: 15px; padding: 0 15px; }
+  .hero-bottom-strip__set span { font-size: 8px; letter-spacing: 1px; }
+  .hero-bottom-strip__set i { width: 4px; height: 4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-bottom-strip__track { animation: none; transform: translate3d(0, 0, 0); }
+}

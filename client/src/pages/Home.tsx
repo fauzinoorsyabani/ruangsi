@@ -301,8 +301,15 @@ export default function Home() {
               <div className="visual-index">01—06</div>
             </motion.div>
           </div>
-          <div className="hero-bottom-strip">
-            <span>TOPIC</span><i /><span>METHOD</span><i /><span>SYSTEM</span><i /><span>STORY</span><i /><span>SIDANG</span>
+          <div className="hero-bottom-strip" aria-label="Tahapan bimbingan skripsi">
+            <div className="hero-bottom-strip__track">
+              <div className="hero-bottom-strip__set">
+                <span>TOPIC</span><i /><span>METHOD</span><i /><span>SYSTEM</span><i /><span>STORY</span><i /><span>SIDANG</span>
+              </div>
+              <div className="hero-bottom-strip__set" aria-hidden="true">
+                <span>TOPIC</span><i /><span>METHOD</span><i /><span>SYSTEM</span><i /><span>STORY</span><i /><span>SIDANG</span>
+              </div>
+            </div>
           </div>
         </section>
 

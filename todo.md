@@ -59,3 +59,7 @@
 - [x] Memeriksa apakah konektor Vercel tersedia dan aktif pada sesi Manus.
 - [x] Memastikan repository GitHub RuangSI berisi konfigurasi deployment terbaru.
 - [x] Menjalankan atau memverifikasi deployment Vercel nyata jika konektor dan otorisasi tersedia.
+
+- [x] Menambahkan marquee TOPIC · METHOD · SYSTEM · STORY · SIDANG yang bergerak kanan ke kiri, responsif, dan mendukung reduced motion.
+- [x] Memverifikasi build serta tampilan marquee.
+- [ ] Mendorong perubahan marquee ke GitHub.

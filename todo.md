@@ -67,3 +67,10 @@
 - [x] Memperbanyak label marquee menjadi rangkaian IDE · TOPIK · MASALAH · METHOD · DATA · SYSTEM · UML · ERD · UX · STORY · REVIEW · SIDANG · READY tanpa ruang kosong visual.
 - [x] Memverifikasi build dan tampilan marquee yang lebih padat.
 - [x] Mendorong perubahan marquee padat ke GitHub.
+
+- [x] Menambahkan animasi pembuka homepage yang terlihat langsung tetapi tetap terarah dan tidak berlebihan.
+- [x] Menambahkan motion kontinu pada study board, orbit, signal path, nodes, dan elemen visual utama.
+- [x] Menjaga reduced-motion, focus state, dan keterbacaan pada semua animasi baru.
+- [x] Menjalankan test, type-check, build, dan screenshot desktop/mobile setelah perubahan motion.
+- [ ] Mempublikasikan repository GitHub RuangSI sesuai permintaan pemilik.
+- [ ] Memeriksa ulang deployment Vercel production dan melaporkan status environment/payment yang masih diperlukan.
